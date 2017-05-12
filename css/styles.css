@@ -15,7 +15,10 @@ html, body {
 }
 
 body {
-  background-image: url(../img/bg.jpg);
+  background-image: url(../img/altbg.jpg);
+  background-position: 90% 80%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   font-family: Newspaper;
   padding: 1%;
 }
@@ -25,7 +28,8 @@ body {
 }
 
 .container {
-  background-color: rgba(200,200,200,0.5);
+  opacity: 0.97;
+  background-image: url(../img/bg.jpg);
   border-left: 2px solid black;
   border-right: 2px solid black;
   box-shadow: 0 0 4px black;
@@ -49,8 +53,8 @@ h1 {
 
 /*Landing Page Styles*/
 #landing {
+  /*display: none;*/
   min-height: 100%;
-  display: none;
 }
 
 .order-online {
@@ -86,12 +90,46 @@ h1 {
 
 /*Pizza Builder Styles*/
 #pizza-builder {
-  /*display: none;*/
+  display: none;
+}
+
+
+.size-button {
+  width: 20%;
+  padding: 20px 0;
+  margin: 5px;
+  background: rgba(255,255,255,0);
+  border: 1px solid black;
 }
 
 .size-selected {
-  border: 2px solid black;
-  padding: 2px;
+  /*border: 2px solid black;
+  padding: 2px;*/
+  background-color: rgba(150,150,150,0.5);
+}
+
+.size-button:focus {
+  outline: 0;
+}
+
+#add-to-order, #checkout {
+  padding: 20px;
+  width: 100%;
+  margin-top: 30px;
+  background-color: transparent;
+  border: 1px solid black;
+}
+
+#add-to-order:hover, #checkout:hover {
+  background-color: rgba(150,150,150,0.5);
+}
+
+#add-to-order:focus, #checkout:focus {
+  outline: 0;
+}
+
+#checkout {
+  margin-bottom: 20px;
 }
 
 /*Order Confirmation Styles*/

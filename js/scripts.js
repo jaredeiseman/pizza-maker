@@ -4,11 +4,10 @@
 
 //Restaurant constructor
 function Restaurant() {
-  this.availableMeats = ['pepperoni', 'sausage', 'bacon', 'canadian bacon'];
-  this.availableNonMeats = ['onions', 'mushrooms', 'olives', 'green peppers', 'pineapple']
+  this.availableMeats = ['pepperoni', 'sausage', 'bacon', 'canadian bacon', 'beef', 'chicken', 'ham', 'salami'];
+  this.availableNonMeats = ['onions', 'mushrooms', 'olives', 'green peppers', 'pineapple', 'cheddar', 'asiago', 'banana peppers', 'garlic', 'jalapenos', 'red peppers', 'tomatoes', 'feta', 'provolone', 'spinach'];
   this.availableSizes = ['small', 'medium', 'large'];
-  this.additionalToppingsPrice = 1;
-  this.basePizzaPrice = 8;
+  this.basePizzaPrice = 12;
   this.currentOrder = [];
   this.orderTotal = 0;
 }
@@ -89,6 +88,12 @@ $(document).ready(function() {
   //construct the restaurant
   var restaurant = new Restaurant();
 
+  //go to order form click handler
+  $('.order-online').click(function() {
+    $('#landing').hide();
+    $('#pizza-builder').show();
+  });
+
   //update the price function
   function updatePrice(pizza) {
     $('#current-pizza-price').text(pizza.updatePrice(restaurant));
@@ -103,7 +108,7 @@ $(document).ready(function() {
                           '<h3>Choose your size:</h3>');
     //populate size buttons
     restaurant.availableSizes.forEach(function(size) {
-      $('#size').append('<button type="button" name="' + size + '" class="btn btn-danger">' + size + '</button>')
+      $('#size').append('<button type="button" name="' + size + '" class="size-button">' + size + '</button>')
     });
     $('#form-area').append('</div>' +
                        '<div class="form-group" id="toppings">' +
@@ -126,7 +131,7 @@ $(document).ready(function() {
     $('#form-area').append('</div>' +
                      '</div>' +
                      '<div class="form-group">' +
-                       '<button type="button" name="order" class="btn btn-info" id="add-to-order">Add To Order</button>' +
+                       '<button type="button" name="order" id="add-to-order">Add To Order</button>' +
                      '</div>' +
                    '</form>');
     //add listeners
@@ -172,10 +177,9 @@ $(document).ready(function() {
       restaurant.currentOrder.forEach(function(order, index) {
         $('#order-details').append('<h4>Pizza ' + (index + 1) + '</h4>' +
                                     '<p>' + order.pizzaSize + '</p>' +
-                                    '<p>' + order.toppings + '</p><hr>');
+                                    '<p>' + order.toppings.join(", ") + '</p><hr>');
       });
     });
   }
-
   drawOrderForm();
 });
