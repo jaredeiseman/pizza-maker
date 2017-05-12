@@ -34,6 +34,7 @@ body {
   border-right: 2px solid black;
   box-shadow: 0 0 4px black;
   margin-bottom: 1%;
+  min-height: 100%;
 }
 
 hr {
@@ -53,7 +54,6 @@ h1 {
 
 /*Landing Page Styles*/
 #landing {
-  /*display: none;*/
   min-height: 100%;
 }
 
@@ -91,6 +91,7 @@ h1 {
 /*Pizza Builder Styles*/
 #pizza-builder {
   display: none;
+  min-height: 100%;
 }
 
 
@@ -133,6 +134,7 @@ h1 {
 /*Checkout Page Styles*/
 #checkout-page {
   display: none;
+  min-height: 100%;
 }
 
 #location-information {
@@ -142,4 +144,5 @@ h1 {
 /*confirmation page styles*/
 #confirmation-page {
   display: none;
+  min-height: 100%;
 }
