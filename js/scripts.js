@@ -109,4 +109,11 @@ $(document).ready(function() {
     }
     updatePrice();
   });
+
+  $('#order-form').submit(function(e) {
+    e.preventDefault();
+
+    restaurant.addToOrder(pizza);
+    console.log(restaurant.currentOrder);
+  });
 });
