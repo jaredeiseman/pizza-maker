@@ -103,8 +103,6 @@ h1 {
 }
 
 .size-selected {
-  /*border: 2px solid black;
-  padding: 2px;*/
   background-color: rgba(150,150,150,0.5);
 }
 
@@ -112,7 +110,7 @@ h1 {
   outline: 0;
 }
 
-#add-to-order, #checkout {
+#add-to-order, #checkout, #confirm-order {
   padding: 20px;
   width: 100%;
   margin-top: 30px;
@@ -120,16 +118,23 @@ h1 {
   border: 1px solid black;
 }
 
-#add-to-order:hover, #checkout:hover {
+#add-to-order:hover, #checkout:hover, #confirm-order:hover {
   background-color: rgba(150,150,150,0.5);
 }
 
-#add-to-order:focus, #checkout:focus {
+#add-to-order:focus, #checkout:focus, #confirm-order:focus {
   outline: 0;
 }
 
-#checkout {
+#checkout, #confirm-order {
   margin-bottom: 20px;
 }
 
-/*Order Confirmation Styles*/
+/*Checkout Page Styles*/
+#checkout-page {
+  display: none;
+}
+
+#location-information {
+  display: none;
+}

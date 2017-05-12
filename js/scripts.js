@@ -182,4 +182,25 @@ $(document).ready(function() {
     });
   }
   drawOrderForm();
+
+  $('#checkout').click(function() {
+    $('#pizza-builder').hide();
+    $('#checkout-page').show();
+    restaurant.currentOrder.forEach(function(order, index) {
+      $('#confirmation-page-order').append('<h4>Pizza ' + (index + 1) + '</h4>' +
+                                  '<p>' + order.pizzaSize + '</p>' +
+                                  '<p>' + order.toppings.join(", ") + '</p><hr>');
+    });
+    $('#confirmation-page-order').append('<h3>Your Total: $' + restaurant.orderTotal + ' + tax</h3>');
+  });
+
+  $('#delivery-radio').click(function() {
+    $('#location-information').show();
+  });
+
+  $('#pickup-radio').click(function() {
+    $('#location-information').hide();
+  });
+
+
 });
