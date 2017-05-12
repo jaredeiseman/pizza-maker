@@ -32,7 +32,7 @@ body {
   margin-bottom: 1%;
 }
 
-#header hr {
+hr {
   border-color: black;
   margin-top: 5px;
   margin-bottom: 5px;

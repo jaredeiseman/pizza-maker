@@ -89,15 +89,13 @@ $(document).ready(function() {
   //construct the restaurant
   var restaurant = new Restaurant();
 
-
-
-
   //update the price function
   function updatePrice(pizza) {
     $('#current-pizza-price').text(pizza.updatePrice(restaurant));
     $('#total-price').text(restaurant.orderTotal);
   }
-  //draw form to page
+
+  //function to draw form to page and attach event handlers
   function drawOrderForm() {
     var pizza = new Pizza();
     $('#form-area').append('<form id="order-form">' +
@@ -138,16 +136,26 @@ $(document).ready(function() {
       $(this).addClass('size-selected');
       $(this).siblings().removeClass('size-selected');
       pizza.setSize(restaurant, size);
+      $('#current-size-selection').empty();
+      $('#current-size-selection').append('<li>' + size + '</li>');
       updatePrice(pizza);
     });
 
-    //toppings selection click event
+    //meat toppings selection click event
     $('input[type="checkbox"]').click(function() {
       var topping = $(this).val();
       if (!pizza.toppings.includes(topping)) {
         pizza.addTopping(restaurant, topping);
+        $('#current-toppings-selection').empty();
+        pizza.toppings.forEach(function(top) {
+          $('#current-toppings-selection').append('<li>' + top + '</li>');
+        });
       } else {
         pizza.removeTopping(topping);
+        $('#current-toppings-selection').empty();
+        pizza.toppings.forEach(function(top) {
+          $('#current-toppings-selection').append('<li>' + top + '</li>');
+        });
       }
       updatePrice(pizza);
     });
@@ -155,12 +163,19 @@ $(document).ready(function() {
     $('#add-to-order').click(function() {
       restaurant.addToOrder(pizza);
       $('#form-area').empty();
+      $('#current-size-selection').empty();
+      $('#current-toppings-selection').empty();
       updatePrice(pizza);
       $('#current-pizza-price').text('0');
       drawOrderForm();
+      $('#order-details').empty();
+      restaurant.currentOrder.forEach(function(order, index) {
+        $('#order-details').append('<h4>Pizza ' + (index + 1) + '</h4>' +
+                                    '<p>' + order.pizzaSize + '</p>' +
+                                    '<p>' + order.toppings + '</p><hr>');
+      });
     });
   }
-
 
   drawOrderForm();
 });
