@@ -11,21 +11,18 @@ function Restaurant() {
   this.currentOrder = [];
   this.orderTotal = 0;
 }
-
 //Pizza constructor
 function Pizza() {
   this.toppings = [];
   this.pizzaSize = "";
   this.price = 0;
 }
-
 //add completed pizza to overall order
 Restaurant.prototype.addToOrder = function(pizza) {
   this.currentOrder.push(pizza);
   this.orderTotal += pizza.price;
   return this.currentOrder;
 }
-
 //verify topping is valid to prevent bugs, and if so add the topping to the pizza
 Pizza.prototype.addTopping = function(restaurant, topping) {
   if (restaurant.availableMeats.includes(topping) || restaurant.availableNonMeats.includes(topping)) {
@@ -35,7 +32,6 @@ Pizza.prototype.addTopping = function(restaurant, topping) {
     return false;
   }
 }
-
 //Verify topping being removed is in the array and locate it's position, then remove it
 Pizza.prototype.removeTopping = function(topping) {
   var index = this.toppings.indexOf(topping);
@@ -46,7 +42,6 @@ Pizza.prototype.removeTopping = function(topping) {
     return false;
   }
 }
-
 //set the pizza size on selected size
 Pizza.prototype.setSize = function(restaurant, size) {
   if (restaurant.availableSizes.includes(size)) {
@@ -55,12 +50,10 @@ Pizza.prototype.setSize = function(restaurant, size) {
     return false;
   }
 }
-
 //update the price of the current pizza
 Pizza.prototype.updatePrice = function(restaurant) {
   //get base pizza price
   this.price = restaurant.basePizzaPrice;
-
   if (this.pizzaSize === 'small') {
     //subtract 2 if small
     this.price -= 2;
@@ -68,12 +61,10 @@ Pizza.prototype.updatePrice = function(restaurant) {
     //add 2 if large
     this.price += 2;
   }
-
   //add $1 for each topping beyond the first
   if (this.toppings.length > 0) {
     this.price += (this.toppings.length - 1);
   }
-
   return this.price;
 }
 
@@ -84,22 +75,19 @@ Pizza.prototype.updatePrice = function(restaurant) {
 $(document).ready(function() {
   //display the date on the mid-line
   $('#date').text(new Date().toDateString());
-
   //construct the restaurant
   var restaurant = new Restaurant();
-
   //go to order form click handler
   $('.order-online').click(function() {
     $('#landing').hide();
     $('#pizza-builder').show();
+    drawOrderForm();
   });
-
   //update the price function
   function updatePrice(pizza) {
     $('#current-pizza-price').text(pizza.updatePrice(restaurant));
     $('#total-price').text(restaurant.orderTotal);
   }
-
   //function to draw form to page and attach event handlers
   function drawOrderForm() {
     var pizza = new Pizza();
@@ -146,7 +134,6 @@ $(document).ready(function() {
       $('#current-size-selection').append('<li>' + size + '</li>');
       updatePrice(pizza);
     });
-
     //meat toppings selection click event
     $('input[type="checkbox"]').click(function() {
       var topping = $(this).val();
@@ -165,7 +152,6 @@ $(document).ready(function() {
       }
       updatePrice(pizza);
     });
-
     $('#order-form').submit(function(e) {
       e.preventDefault();
       if ($('.size-selected').length === 0) {
@@ -187,8 +173,6 @@ $(document).ready(function() {
       });
     });
   }
-  drawOrderForm();
-
   $('#checkout').click(function() {
     if (restaurant.currentOrder.length === 0) {
       alert('Please add at least one pizza to your cart before checking out');
@@ -203,15 +187,12 @@ $(document).ready(function() {
     });
     $('#confirmation-page-order').append('<h3>Your Total: $' + restaurant.orderTotal + ' + tax</h3>');
   });
-
   $('#delivery-radio').click(function() {
     $('#location-information').show();
   });
-
   $('#pickup-radio').click(function() {
     $('#location-information').hide();
   });
-
   $('#confirm-form').submit(function(e) {
     e.preventDefault();
     $('#checkout-page').hide();
