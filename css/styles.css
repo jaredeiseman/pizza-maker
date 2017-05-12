@@ -9,8 +9,12 @@
   font-family: Calligraphy;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html, body {
-  height: 98%;
+  height: 95%;
 }
 
 body {
@@ -28,7 +32,8 @@ body {
   border-left: 2px solid black;
   border-right: 2px solid black;
   box-shadow: 0 0 4px black;
-  min-height: 100%;
+  min-height: 95%;
+  padding: 30px;
 }
 
 hr {
@@ -39,6 +44,8 @@ hr {
 
 h1 {
   font-size: 50px;
+  letter-spacing: 25px;
+  margin-bottom: 25px;
 }
 
 .mid-line {
