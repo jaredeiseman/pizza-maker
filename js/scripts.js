@@ -202,5 +202,8 @@ $(document).ready(function() {
     $('#location-information').hide();
   });
 
-
+  $('#confirm-order').click(function() {
+    $('#checkout-page').hide();
+    $('#confirmation-page').show();
+  })
 });

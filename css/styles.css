@@ -138,3 +138,8 @@ h1 {
 #location-information {
   display: none;
 }
+
+/*confirmation page styles*/
+#confirmation-page {
+  display: none;
+}
