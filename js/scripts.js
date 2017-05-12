@@ -23,6 +23,7 @@ function Pizza() {
 //add completed pizza to overall order
 Restaurant.prototype.addToOrder = function(pizza) {
   this.currentOrder.push(pizza);
+  this.orderTotal += pizza.price;
   return this.currentOrder;
 }
 
@@ -89,14 +90,16 @@ $(document).ready(function() {
   var restaurant = new Restaurant();
 
 
-  var pizza = new Pizza();
+
 
   //update the price function
-  function updatePrice() {
+  function updatePrice(pizza) {
     $('#current-pizza-price').text(pizza.updatePrice(restaurant));
+    $('#total-price').text(restaurant.orderTotal);
   }
   //draw form to page
   function drawOrderForm() {
+    var pizza = new Pizza();
     $('#form-area').append('<form id="order-form">' +
                         '<div class="form-group" id="size">' +
                           '<h3>Choose your size:</h3>');
@@ -135,7 +138,7 @@ $(document).ready(function() {
       $(this).addClass('size-selected');
       $(this).siblings().removeClass('size-selected');
       pizza.setSize(restaurant, size);
-      updatePrice();
+      updatePrice(pizza);
     });
 
     //toppings selection click event
@@ -146,12 +149,15 @@ $(document).ready(function() {
       } else {
         pizza.removeTopping(topping);
       }
-      updatePrice();
+      updatePrice(pizza);
     });
 
     $('#add-to-order').click(function() {
       restaurant.addToOrder(pizza);
-      console.log(restaurant.currentOrder);
+      $('#form-area').empty();
+      updatePrice(pizza);
+      $('#current-pizza-price').text('0');
+      drawOrderForm();
     });
   }
 
