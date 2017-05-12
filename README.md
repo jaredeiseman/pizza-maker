@@ -7,10 +7,31 @@
 ## Description
 
 ## Specifications
-| test | test | test |
+| Specification | Example Input | Example Output |
 | ------------- |:-------------:| -----:|
-| test | test | test |
-| test | test | test |
+| The app will be able to construct a restaurant object that will house toppings objects, and available pizza sizes | new Restaurant() | { availableToppings: [pep, sausage, ...], availableSizes: ['small', ...], toppingsPrice: 1, basePizzaPrice: 8, currentOrder: [{pizza objects}] } |
+| The app will be able to construct a pizza object that holds current toppings selected, size, and current price property | new Pizza() | { toppings: [], size: "small", price: # } |
+| The app will be able to use the Pizza constructor and add the base pizza to the overall order from the restaurant | Restaurant.currentOrder.push(new Pizza()) | Constructs the pizza in the currentOrder property |
+| There will be a method to call when a topping is selected to add it to the appropriate pizza | Pizza.addTopping('pepperoni') | pizza.toppings: ['pepperoni'] |
+| The app will be able to remove toppings from a pizza | Pizza.removeTopping('pepperoni') | pizza.toppings: [] |
+| The app will be able to update the price of the pizza whenever a change is made by the user | Pizza.updatePrice() | price: 11 |
+
+## Data Structure
+Restaurant: {
+  availableToppings: ['pepperoni', 'sausage', 'onions', 'mushrooms', ... , 'Green Peppers'],
+  availableSizes: ['small', 'medium', 'large'],
+  toppingsPrice: 1,
+  basePizzaPrice: 8,
+  currentOrder: [
+    {
+      // Pizza
+      toppings: [],
+      size: 'small',
+      price: current price
+    }
+  ]
+}
+
 
 ## Setup/Installation Requirements
 
