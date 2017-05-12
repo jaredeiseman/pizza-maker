@@ -104,36 +104,37 @@ $(document).ready(function() {
   function drawOrderForm() {
     var pizza = new Pizza();
     $('#form-area').append('<form id="order-form">' +
-                        '<div class="form-group" id="size">' +
-                          '<h3>Choose your size:</h3>');
+                            '<div class="form-group" id="size">' +
+                              '<h3>Choose your size:</h3>' +
+                              '</div>' +
+                              '<div class="form-group" id="toppings">' +
+                                '<div class="meat-toppings">' +
+                                  '<h3>Choose your meats:</h3>' +
+                                '</div>' +
+                                '<div class="non-meat-toppings">' +
+                                  '<h3>Choose your non-meats:</h3>' +
+                                  '</div>' +
+                                '</div>' +
+                                '<div class="form-group">' +
+                                  '<button type="submit" name="order" for="order-form" id="add-to-order">Add To Order</button>' +
+                                '</div>' +
+                              '</form>');
     //populate size buttons
     restaurant.availableSizes.forEach(function(size) {
       $('#size').append('<button type="button" name="' + size + '" class="size-button">' + size + '</button>')
     });
-    $('#form-area').append('</div>' +
-                       '<div class="form-group" id="toppings">' +
-                         '<div class="meat-toppings">' +
-                           '<h3>Choose your meats:</h3>');
      //populate the meats checkboxes
     restaurant.availableMeats.forEach(function(meat) {
       $('.meat-toppings').append('<label class="checkbox-inline">' +
                                    '<input type="checkbox" value="' + meat + '">' + meat + '' +
                                  '</label>');
     });
-    $('#form-area').append('</div>' +
-                       '<div class="non-meat-toppings">' +
-                         '<h3>Choose your non-meats:</h3>');
+    //populate non meats checkboxes
     restaurant.availableNonMeats.forEach(function(nonMeat) {
       $('.non-meat-toppings').append('<label class="checkbox-inline">' +
                                        '<input type="checkbox" value="' + nonMeat + '">' + nonMeat + '' +
                                      '</label>');
     });
-    $('#form-area').append('</div>' +
-                     '</div>' +
-                     '<div class="form-group">' +
-                       '<button type="button" name="order" id="add-to-order">Add To Order</button>' +
-                     '</div>' +
-                   '</form>');
     //add listeners
     //size selection click event
     $('#size button').click(function() {
@@ -165,7 +166,12 @@ $(document).ready(function() {
       updatePrice(pizza);
     });
 
-    $('#add-to-order').click(function() {
+    $('#order-form').submit(function(e) {
+      e.preventDefault();
+      if ($('.size-selected').length === 0) {
+        alert('Please select a size');
+        return;
+      }
       restaurant.addToOrder(pizza);
       $('#form-area').empty();
       $('#current-size-selection').empty();
@@ -184,6 +190,10 @@ $(document).ready(function() {
   drawOrderForm();
 
   $('#checkout').click(function() {
+    if (restaurant.currentOrder.length === 0) {
+      alert('Please add at least one pizza to your cart before checking out');
+      return;
+    }
     $('#pizza-builder').hide();
     $('#checkout-page').show();
     restaurant.currentOrder.forEach(function(order, index) {
@@ -202,7 +212,8 @@ $(document).ready(function() {
     $('#location-information').hide();
   });
 
-  $('#confirm-order').click(function() {
+  $('#confirm-form').submit(function(e) {
+    e.preventDefault();
     $('#checkout-page').hide();
     $('#confirmation-page').show();
   })
