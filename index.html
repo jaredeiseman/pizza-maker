@@ -10,40 +10,90 @@
   </head>
   <body>
     <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <h1>News York Pizza</h1>
+      <div id="header">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h1>News York Pizza</h1>
+            <hr>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <p class="mid-line col-xs-4 text-left"><strong>VOL. I</strong></p>
+            <p class="mid-line col-xs-4 text-center"><strong id="date"></strong></p>
+            <p class="mid-line col-xs-4 text-right"><strong>$2.50</strong></p>
+          </div>
+          <div class="col-xs-12">
+            <hr>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <!-- content -->
-        <div class="col-md-6 col-md-offset-3">
-          <form id="order-form">
-            <div class="form-group" id="size">
-              <button type="button" name="small" class="btn btn-danger">Small</button>
-              <button type="button" name="medium" class="btn btn-danger">Medium</button>
-              <button type="button" name="large" class="btn btn-danger">Large</button>
-            </div>
-            <div class="form-group" id="toppings">
-              <label class="checkbox-inline">
-                <input type="checkbox" value="pepperoni"> Pepperoni
-              </label>
-              <label class="checkbox-inline">
-                <input type="checkbox" value="sausage"> Sausage
-              </label>
-              <label class="checkbox-inline">
-                <input type="checkbox" value="onions"> Onions
-              </label>
-            </div>
-            <div class="form-group">
-              <button type="submit" name="order" class="btn btn-info" id="add-to-order">Add To Order</button>
-            </div>
-          </form>
+      <div class="row" id="landing">
+        <div class="col-md-3 left-landing">
+          <h2><strong>Enjoy your very own pie today!</strong></h2>
+          <br>
+          <button type="button" name="button" class="order-online"><strong>Order Online</strong></button>
+          <br>
+          <h3>Come on in for a bite:</h3>
+          <h4>123 ABC Lane</h4>
+          <h4>Portland, OR 97230</h4>
+          <br>
+          <h3>Order By Phone:</h3>
+          <h4><a href="tel:1-555-555-5555">(555)555-5555</a></h4>
+          <br>
+        </div>
+        <div class="col-md-6 middle-landing">
+          <h2><strong>Quality Pizza's Since 1903</strong></h2>
+          <img src="img/lead.jpg" class="lead-image" alt="pizza artist taking a pizza out of an oven">
+          <h4>By: Jared Eiseman</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="col-md-3">
+          <h2><strong>What are other people saying?</strong></h2>
+          <br>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <h5 class="text-left review-by">- John Jacobson, <em>SE Portland</em></h5>
+          <br>
+          <p class="text-right">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <h5 class="text-right review-by">- John Jacobson, <em>SE Portland</em></h5>
+          <br>
+          <p class="text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <h5 class="text-left review-by">- John Jacobson, <em>SE Portland</em></h5>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <h2 id="price"></h2>
+      <div id="pizza-builder">
+        <div class="row">
+          <div class="col-md-9">
+            <form id="order-form">
+              <div class="form-group" id="size">
+                <h3>Choose your size:</h3>
+                <button type="button" name="small" class="btn btn-danger">Small</button>
+                <button type="button" name="medium" class="btn btn-danger">Medium</button>
+                <button type="button" name="large" class="btn btn-danger">Large</button>
+              </div>
+              <div class="form-group" id="toppings">
+                <div class="meat-toppings">
+                  <h3>Choose your meats:</h3>
+                </div>
+                <div class="non-meat-toppings">
+                  <h3>Choose your non-meats:</h3>
+                </div>
+              </div>
+              <div class="form-group">
+                <button type="button" name="order" class="btn btn-info" id="add-to-order">Add To Order</button>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-3" id="cart">
+            <h2>Your Order:</h2>
+            <p>Current Pizza Price: $<span id="current-pizza-price"></span></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+
+          </div>
         </div>
       </div>
     </div>

@@ -1,4 +1,97 @@
+/*Global Styles*/
+@font-face {
+  src: url(../fonts/OldNewspaperTypes.ttf);
+  font-family: Newspaper;
+}
+
+@font-face {
+  src: url(../fonts/Calligraphy.ttf);
+  font-family: Calligraphy;
+}
+
+html, body {
+  height: 98%;
+
+}
+
+body {
+  background-image: url(../img/bg.jpg);
+  font-family: Newspaper;
+  padding: 1%;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.container {
+  background-color: rgba(200,200,200,0.5);
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  box-shadow: 0 0 4px black;
+  margin-bottom: 1%;
+}
+
+#header hr {
+  border-color: black;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+.mid-line {
+  margin: 0;
+}
+
+
+/*Landing Page Styles*/
+#landing {
+  min-height: 100%;
+  display: none;
+}
+
+.order-online {
+  font-family: Calligraphy;
+  font-size: 40px;
+  width: 100%;
+  background: #ccc;
+  height: 80px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.order-online:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.order-online:focus {
+  outline: 0;
+}
+
+.middle-landing {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  height: 100%;
+}
+
+.lead-image {
+  width: 70%;
+  float: right;
+  padding: 20px;
+}
+
+/*Pizza Builder Styles*/
+#pizza-builder {
+  /*display: none;*/
+}
+
 .size-selected {
   border: 2px solid black;
   padding: 2px;
 }
+
+/*Order Confirmation Styles*/

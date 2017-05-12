@@ -82,13 +82,31 @@ Pizza.prototype.updatePrice = function(restaurant) {
 ////////////////////////////////////////////////////////////////////////////////
 
 $(document).ready(function() {
+  //display the date on the mid-line
+  $('#date').text(new Date().toDateString());
+
+  //construct the restaurant
   var restaurant = new Restaurant();
+
+
   var pizza = new Pizza();
 
   //update the price function
   function updatePrice() {
-    $('#price').text(pizza.updatePrice(restaurant));
+    $('#current-pizza-price').text(pizza.updatePrice(restaurant));
   }
+
+  //populate the meats checkboxes
+  restaurant.availableMeats.forEach(function(meat) {
+    $('.meat-toppings').append('<label class="checkbox-inline">' +
+                                 '<input type="checkbox" value="' + meat + '">' + meat + '' +
+                                '</label>');
+  });
+  restaurant.availableNonMeats.forEach(function(nonMeat) {
+    $('.non-meat-toppings').append('<label class="checkbox-inline">' +
+                                     '<input type="checkbox" value="' + nonMeat + '">' + nonMeat + '' +
+                                   '</label>');
+  });
 
   //size selection click event
   $('#size button').click(function() {
@@ -110,9 +128,7 @@ $(document).ready(function() {
     updatePrice();
   });
 
-  $('#order-form').submit(function(e) {
-    e.preventDefault();
-
+  $('#add-to-order').click(function() {
     restaurant.addToOrder(pizza);
     console.log(restaurant.currentOrder);
   });
