@@ -11,7 +11,6 @@
 
 html, body {
   height: 98%;
-
 }
 
 body {
@@ -23,17 +22,12 @@ body {
   padding: 1%;
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
-
 .container {
   opacity: 0.97;
   background-image: url(../img/bg.jpg);
   border-left: 2px solid black;
   border-right: 2px solid black;
   box-shadow: 0 0 4px black;
-  margin-bottom: 1%;
   min-height: 100%;
 }
 
@@ -51,7 +45,6 @@ h1 {
   margin: 0;
 }
 
-
 /*Landing Page Styles*/
 #landing {
   min-height: 100%;
@@ -59,17 +52,9 @@ h1 {
 
 .order-online {
   font-family: Calligraphy;
-  font-size: 40px;
-  width: 100%;
-  background: #ccc;
-  height: 80px;
-  border: 1px solid black;
+  font-size: 30px;
   border-radius: 5px;
-}
-
-.order-online:hover {
-  background-color: #333;
-  color: #fff;
+  margin-bottom: 20px;
 }
 
 .order-online:focus {
@@ -111,19 +96,19 @@ h1 {
   outline: 0;
 }
 
-#add-to-order, #checkout, #confirm-order {
+#add-to-order, #checkout, #confirm-order, .order-online {
   padding: 20px;
   width: 100%;
-  margin-top: 30px;
+  margin-top: 20px;
   background-color: transparent;
   border: 1px solid black;
 }
 
-#add-to-order:hover, #checkout:hover, #confirm-order:hover {
+#add-to-order:hover, #checkout:hover, #confirm-order:hover, .order-online:hover, .size-button:hover {
   background-color: rgba(150,150,150,0.5);
 }
 
-#add-to-order:focus, #checkout:focus, #confirm-order:focus {
+#add-to-order:focus, #checkout:focus, #confirm-order:focus, .order-online:focus, .size-button:focus {
   outline: 0;
 }
 
@@ -145,4 +130,13 @@ h1 {
 #confirmation-page {
   display: none;
   min-height: 100%;
+}
+
+@media screen and (max-width: 992px) {
+  body {
+    font-size: 2em;
+  }
+  .middle-landing {
+    border:none;
+  }
 }
