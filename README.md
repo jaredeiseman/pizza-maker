@@ -5,11 +5,12 @@
 #### By Jared Eiseman
 
 ## Description
+News York Pizza is an interactive application allowing users to fill out a pizza order form after clicking "Order Online" from the landing page. The user is brought to a form in which they can choose the size of pizza they would like, and the meat/non-meat toppings of their choosing. Price of the pizza being built appears on the right side of the screen, as well as a live tracker of what toppings they've chosen. Once "add to order" is clicked, the pizza is logged into their overall current order, and given the ability to add another pizza to the order. When the user has finished their selections, and they click "Checkout", they will be brought to a confirmation page, where they have the opportunity to review their order, the price, and to fill out necessary pickup or delivery options. Finally a thank you page is displayed with information as to when their order will be ready/delivered.
 
 ## Specifications
 | Specification | Example Input | Example Output |
 | ------------- |:-------------:| -----:|
-| The app will be able to construct a restaurant object that will house toppings objects, and available pizza sizes | new Restaurant() | { availableToppings: [pep, sausage, ...], availableSizes: ['small', ...], toppingsPrice: 1, basePizzaPrice: 8, currentOrder: [{pizza objects}] } |
+| The app will be able to construct a restaurant object that will house toppings objects, and available pizza sizes, as well as set the base pizza price | new Restaurant() | { availableToppings: [pep, sausage, ...], availableSizes: ['small', ...], basePizzaPrice: 8, currentOrder: [{pizza objects}] } |
 | The app will be able to construct a pizza object that holds current toppings selected, size, and current price property | new Pizza() | { toppings: [], pizzaSize: "small", price: # } |
 | The app will be able to use the Pizza constructor and add the base pizza to the overall order from the restaurant | Restaurant.currentOrder.push(new Pizza()) | Constructs the pizza in the currentOrder property |
 | There will be a method to call when a topping is selected to add it to the appropriate pizza | Pizza.addTopping('pepperoni') | pizza.toppings: ['pepperoni'] |
@@ -20,7 +21,6 @@
 Restaurant: {
   availableToppings: ['pepperoni', 'sausage', 'onions', 'mushrooms', ... , 'Green Peppers'],
   availableSizes: ['small', 'medium', 'large'],
-  toppingsPrice: 1,
   basePizzaPrice: 8,
   currentOrder: [
     {
@@ -36,18 +36,15 @@ Restaurant: {
 ## Setup/Installation Requirements
 
 * Clone the repository
-* Open 'index.html' in a browser
-* Choose the answers that best suit your purpose
-* Choose the next or previous buttons to navigate the survey
-* When all answers are satisfactory, choose submit, enjoy the animation and read your results
+* Open 'index.html' from the cloned directory in a browser
 
 ## Known Bugs
 
-When only the final question is answered in the form, and the form is submitted, validation will still work as intended to prevent the form from being completed. However, the styling added to denote unanswered questions does not colorize the final question properly after a couple of iterations through failing the validation.
+There are no known bugs at this time.
 
 ## Support and contact details
 
-For feedback or support contact Jared at jathei@gmail.com.
+For feedback or support contact Jared Eiseman at jathei@gmail.com.
 
 ## Technologies Used
 
